@@ -386,3 +386,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+src/ComicsUpdateTracker.Mhgui/Properties/launchSettings.json

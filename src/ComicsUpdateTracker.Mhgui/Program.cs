@@ -45,10 +45,10 @@ namespace ComicsUpdateTracker.Mhgui
 
                     if (newChapters.Any())
                     {
-                        var message = $"*{comic.Name}* 有新的章節: \r\n";
+                        var message = $"[{comic.Name}] 有新的章節: \r\n";
                         foreach (var chap in newChapters)
                         {
-                            message += $"*{chap.Title}:* {chap.Url}";
+                            message += $"* {chap.Title}: {chap.Url}";
                         }
 
                         messages.Add(message);
@@ -56,7 +56,7 @@ namespace ComicsUpdateTracker.Mhgui
                 }
                 else
                 {
-                    messages.Add($"開始追蹤 *{comic.Name}* 的更新");
+                    messages.Add($"開始追蹤 [{comic.Name}] 的更新");
                 }
 
                 File.WriteAllText(
@@ -64,7 +64,10 @@ namespace ComicsUpdateTracker.Mhgui
                     JsonSerializer.Serialize(allChapters.Select(x => x.Id)));
             }
 
-            await SendLineNotify(string.Join("\r\n", messages));
+            if (messages.Count > 0)
+            {
+                await SendLineNotify(string.Join("\r\n\r\n", messages));
+            }
         }
 
 
@@ -94,7 +97,7 @@ namespace ComicsUpdateTracker.Mhgui
         public static async Task SendLineNotify(string message)
         {
             var formData = new NameValueCollection();
-            formData["message"] = message;
+            formData["message"] = "\r\n" + message;
             await Http.Request("https://notify-api.line.me/api/notify")
                       .AddHeader("Authorization", "Bearer " + Environment.GetEnvironmentVariable("LINE_NOTIFY_TOKEN"))
                       .SendForm(formData)

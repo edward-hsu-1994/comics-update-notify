@@ -22,8 +22,8 @@ jobs:
     - name: Build
       run: dotnet build ./src --no-restore
     - name: Setting Line Notify Token
-        run: |
-          export LINE_NOTIFY_TOKEN=${{ secrets.LINE_NOTIFY_TOKEN }}
+      run: |
+        export LINE_NOTIFY_TOKEN=${{ secrets.LINE_NOTIFY_TOKEN }}
     - name: Run tranker
       run: dotnet run --project ./src/ComicsUpdateTracker.Mhgui
     - name: Commit and push

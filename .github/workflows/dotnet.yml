@@ -24,7 +24,6 @@ jobs:
     - name: Setting Line Notify Token
         run: |
           export LINE_NOTIFY_TOKEN=${{ secrets.LINE_NOTIFY_TOKEN }}
-          bash main.sh
     - name: Run tranker
       run: dotnet run --project ./src/ComicsUpdateTracker.Mhgui
     - name: Commit and push

@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "suK9oxOdva4UHukTBY6K6xf8kF6rwogKgvoEap+jZaH9zDeJaknCHkY1G2uY/c+5/iIR87PNY7kFLsdtoCaPsQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\comics-update-notify\\src\\ComicsUpdateTracker.Mhgui\\ComicsUpdateTracker.Mhgui.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Edward Hsu\\.nuget\\packages\\fsharp.core\\4.5.2\\fsharp.core.4.5.2.nupkg.sha512",
+    "C:\\Users\\Edward Hsu\\.nuget\\packages\\htmlagilitypack\\1.11.34\\htmlagilitypack.1.11.34.nupkg.sha512",
+    "C:\\Users\\Edward Hsu\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\Edward Hsu\\.nuget\\packages\\scrapysharp\\3.0.0\\scrapysharp.3.0.0.nupkg.sha512",
+    "C:\\Users\\Edward Hsu\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0-preview1-26216-02\\system.configuration.configurationmanager.4.5.0-preview1-26216-02.nupkg.sha512",
+    "C:\\Users\\Edward Hsu\\.nuget\\packages\\system.runtime.caching\\4.5.0-preview1-26216-02\\system.runtime.caching.4.5.0-preview1-26216-02.nupkg.sha512",
+    "C:\\Users\\Edward Hsu\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0-preview1-26216-02\\system.security.cryptography.protecteddata.4.5.0-preview1-26216-02.nupkg.sha512"
+  ],
+  "logs": []
+}

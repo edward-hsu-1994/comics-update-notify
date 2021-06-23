@@ -19,5 +19,10 @@ namespace ComicsUpdateTracker.Mhgui.Models
         public Chapter NewestChapter { get; set; }
         public IEnumerable<ChapterCollection> ChapterCollection { get; set; }
         public string Description { get; internal set; }
+
+        public IEnumerable<Chapter> GetAllChapters()
+        {
+            return ChapterCollection.SelectMany(x => x.Chapters);
+        }
     }
 }

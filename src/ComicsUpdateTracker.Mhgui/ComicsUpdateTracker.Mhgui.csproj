@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.34" />
     <PackageReference Include="ScrapySharp" Version="3.0.0" />
+    <PackageReference Include="StackExchange.Utils.Http" Version="0.3.2" />
   </ItemGroup>
 
 </Project>

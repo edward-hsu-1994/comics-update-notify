@@ -13,7 +13,8 @@ namespace ComicsUpdateTracker.Mhgui
 {
     public class MhguiService
     {
-        public const string WELL_KNOWN_HOST = "https://www.mhgui.com/";
+        public const string WELL_KNOWN_MIRROR_HOST = "https://www.mhgui.com/";
+        public const string WELL_KNOWN_HOST = "https://www.manhuagui.com/";
 
         public static Regex CHAPTER_ID_REGEX = new Regex(@"(?<id>\d+).html");
 

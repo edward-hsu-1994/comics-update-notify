@@ -31,6 +31,9 @@ namespace ComicsUpdateTracker.Mhgui
             foreach (var comicId in trackingList)
             {
                 var comic   = await comicService.GetComicById(comicId);
+                
+                Console.WriteLine($"{comic.Name}");
+
                 var logPath = Path.Combine(GetMhguiLogDirectory(), $"{comicId}.json");
 
                 var allChapters = comic.GetAllChapters().ToArray();

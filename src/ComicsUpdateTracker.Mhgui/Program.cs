@@ -14,6 +14,7 @@ namespace ComicsUpdateTracker.Mhgui
     {
         public static async Task Main(string[] args)
         {
+            Console.WriteLine($"Current Directory: {Directory.GetCurrentDirectory()}");
             var dataDir          = GetDataDirectory();
             var trackingListPath = Path.Combine(dataDir, "tracking-list.json");
 
@@ -105,11 +106,12 @@ namespace ComicsUpdateTracker.Mhgui
         {
             var formData = new NameValueCollection();
             formData["message"] = "\r\n" + message;
-            await Http.Request("https://notify-api.line.me/api/notify")
+            var response = await Http.Request("https://notify-api.line.me/api/notify")
                       .AddHeader("Authorization", "Bearer " + Environment.GetEnvironmentVariable("LINE_NOTIFY_TOKEN"))
                       .SendForm(formData)
                       .ExpectHttpSuccess()
                       .PostAsync();
+            Console.WriteLine(response.StatusCode?.ToString());
         }
     }
 }

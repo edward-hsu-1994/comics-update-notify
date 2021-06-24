@@ -56,11 +56,15 @@ namespace ComicsUpdateTracker.Mhgui
                         }
 
                         messages.Add(message);
+                        Console.WriteLine(message);
                     }
                 }
                 else
                 {
-                    messages.Add($"開始追蹤 [{comic.Name}] 的更新");
+                    var msg = $"開始追蹤 [{comic.Name}] 的更新";
+                    Console.WriteLine(msg);
+                    messages.Add(msg);
+
                 }
 
                 File.WriteAllText(
@@ -88,7 +92,6 @@ namespace ComicsUpdateTracker.Mhgui
 
         public static string GetMhguiLogDirectory()
         {
-            GetDataDirectory();
             var workDir = Path.Combine(GetDataDirectory(), "logs");
             if (!Directory.Exists(workDir))
             {

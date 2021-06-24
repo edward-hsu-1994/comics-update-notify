@@ -24,4 +24,4 @@ jobs:
     - name: Commit and push
       uses: EndBug/add-and-commit@v7
       with:
-        message: 'bot: Update mhgui log'
+        message: 'bot: Update comic log'

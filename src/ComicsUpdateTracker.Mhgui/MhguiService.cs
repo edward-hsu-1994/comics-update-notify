@@ -89,6 +89,7 @@ namespace ComicsUpdateTracker.Mhgui
                     Title = newestChapter.InnerText,
                     Url   = _host + newestChapter.GetAttributeValue("href")
                 };
+                comic.NewestChapter.Id = MhguiService.CHAPTER_ID_REGEX.Match(comic.NewestChapter.Url).Groups["id"].Value;
             }
 
             #endregion
@@ -117,11 +118,13 @@ namespace ComicsUpdateTracker.Mhgui
                 List<Chapter> chapters = new List<Chapter>();
                 foreach (var chapterEle in chapterTypeEle.CssSelect("li>a"))
                 {
+                    Chapter chapter = null;
                     chapters.Add(new Chapter()
                     { 
                         Title = chapterEle.GetAttributeValue("title"),
                         Url = _host + chapterEle.GetAttributeValue("href")
                     });
+                    chapter.Id = MhguiService.CHAPTER_ID_REGEX.Match(chapter.Url).Groups["id"].Value;
                 }
 
                 collections.Add(new ChapterCollection()

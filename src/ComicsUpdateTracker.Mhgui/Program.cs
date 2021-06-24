@@ -15,7 +15,7 @@ namespace ComicsUpdateTracker.Mhgui
         public static async Task Main(string[] args)
         {
             var dataDir          = GetDataDirectory();
-            var trackingListPath = Path.Combine(dataDir, "mhgui-tracking-list.json");
+            var trackingListPath = Path.Combine(dataDir, "tracking-list.json");
 
             if (!File.Exists(trackingListPath))
             {
@@ -25,11 +25,12 @@ namespace ComicsUpdateTracker.Mhgui
             var trackingListText = File.ReadAllText(trackingListPath);
             var trackingList     = System.Text.Json.JsonSerializer.Deserialize<string[]>(trackingListText);
 
-            var mhs      = new MhguiService();
+            var comicService      = new ComicbusService();
+
             var messages = new List<string>();
             foreach (var comicId in trackingList)
             {
-                var comic   = await mhs.GetComicById(comicId);
+                var comic   = await comicService.GetComicById(comicId);
                 var logPath = Path.Combine(GetMhguiLogDirectory(), $"{comicId}.json");
 
                 var allChapters = comic.GetAllChapters().ToArray();
@@ -85,7 +86,7 @@ namespace ComicsUpdateTracker.Mhgui
         public static string GetMhguiLogDirectory()
         {
             GetDataDirectory();
-            var workDir = Path.Combine(GetDataDirectory(), "mhgui-logs");
+            var workDir = Path.Combine(GetDataDirectory(), "logs");
             if (!Directory.Exists(workDir))
             {
                 Directory.CreateDirectory(workDir);

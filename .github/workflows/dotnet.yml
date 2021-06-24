@@ -17,11 +17,10 @@ jobs:
         dotnet-version: 3.1.410
     - name: Restore dependencies
       run: dotnet restore ./src
-    - name: Setting Line Notify Token
-      run: |
-        export LINE_NOTIFY_TOKEN=${{ secrets.LINE_NOTIFY_TOKEN }};
     - name: Run tranker
-      run: dotnet run --project ./src/ComicsUpdateTracker.Mhgui
+      run: dotnet run --project ./src/ComicsUpdateTracker.Mhgui      
+      env:
+        LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
     - name: Commit and push
       uses: EndBug/add-and-commit@v7
       with:

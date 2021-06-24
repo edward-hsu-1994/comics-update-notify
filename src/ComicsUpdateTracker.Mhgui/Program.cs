@@ -93,7 +93,7 @@ namespace ComicsUpdateTracker.Mhgui
 
         public static string GetMhguiLogDirectory()
         {
-            var workDir = Path.Combine(GetDataDirectory(), "logs");
+            var workDir = Path.Combine(GetDataDirectory(), "comic-logs");
             if (!Directory.Exists(workDir))
             {
                 Directory.CreateDirectory(workDir);

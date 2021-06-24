@@ -10,9 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest    
     steps:
-    - name: Setting Line Notify Token
-      run: |
-        export LINE_NOTIFY_TOKEN=${{ secrets.LINE_NOTIFY_TOKEN }};
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -20,6 +17,9 @@ jobs:
         dotnet-version: 3.1.410
     - name: Restore dependencies
       run: dotnet restore ./src
+    - name: Setting Line Notify Token
+      run: |
+        export LINE_NOTIFY_TOKEN=${{ secrets.LINE_NOTIFY_TOKEN }};
     - name: Run tranker
       run: dotnet run --project ./src/ComicsUpdateTracker.Mhgui
     - name: Commit and push

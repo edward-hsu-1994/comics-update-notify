@@ -64,12 +64,12 @@ namespace ComicsUpdateTracker.Mhgui
                     var msg = $"開始追蹤 [{comic.Name}] 的更新";
                     Console.WriteLine(msg);
                     messages.Add(msg);
-
                 }
 
                 File.WriteAllText(
                     logPath,
                     JsonSerializer.Serialize(allChapters.Select(x => x.Id)));
+                Console.WriteLine(logPath);
             }
 
             if (messages.Count > 0)

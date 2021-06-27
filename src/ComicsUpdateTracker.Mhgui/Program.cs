@@ -24,7 +24,10 @@ namespace ComicsUpdateTracker.Mhgui
             }
 
             var trackingListText = File.ReadAllText(trackingListPath);
-            var trackingList     = System.Text.Json.JsonSerializer.Deserialize<string[]>(trackingListText);
+            var trackingList     = System.Text.Json.JsonSerializer.Deserialize<string[]>(trackingListText, new JsonSerializerOptions()
+            {
+                ReadCommentHandling = JsonCommentHandling.Skip
+            });
 
             var comicService      = new ComicbusService();
 
@@ -69,7 +72,7 @@ namespace ComicsUpdateTracker.Mhgui
 
                 File.WriteAllText(
                     logPath,
-                    JsonSerializer.Serialize(allChapters.Select(x => x.Id)));
+                    JsonSerializer.Serialize(allChapters.Select(x => x.Id).OrderBy(x=>x)));
                 Console.WriteLine(logPath);
             }
 

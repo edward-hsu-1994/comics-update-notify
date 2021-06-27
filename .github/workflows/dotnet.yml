@@ -17,11 +17,11 @@ jobs:
         dotnet-version: 3.1.410
     - name: Restore dependencies
       run: dotnet restore ./src
-    - name: Run tranker
+    - name: Run tracker
       run: dotnet run --project ./src/ComicsUpdateTracker.Mhgui      
       env:
         LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
     - name: Commit and push
       uses: EndBug/add-and-commit@v7
       with:
-        message: 'bot: Update mhgui log'
+        message: 'bot: Update comic log'

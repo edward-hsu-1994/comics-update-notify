@@ -17,7 +17,7 @@ namespace ComicsUpdateTracker.Mhgui
     {
         public const string WELL_KNOWN_HOST = "https://www.comicbus.com/";
 
-        public static Regex CHAPTER_ID_REGEX = new Regex(@"cview\(\'(?<id>.+).html\',\d,\d\);");
+        public static Regex CHAPTER_ID_REGEX = new Regex(@"cview\(\'(?<id>.+).html\',\d+,\d+\);");
         public static Regex COMIC_NAME = new Regex(@"addhistory\(\""\d+\"",\""(?<name>.+)\""\);");
         private readonly string _host;
         private readonly HttpClient _http;

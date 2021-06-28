@@ -56,7 +56,7 @@ namespace ComicsUpdateTracker.Mhgui
                         var message = $"[{comic.Name}] 有新的章節: \r\n";
                         foreach (var chap in newChapters)
                         {
-                            message += $"* {chap.Title}: {chap.Url}";
+                            message += $"* {chap.Title}: {chap.Url}\r\n";
                         }
 
                         messages.Add(message);

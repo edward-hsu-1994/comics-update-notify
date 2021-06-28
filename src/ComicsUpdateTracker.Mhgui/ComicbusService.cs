@@ -75,6 +75,10 @@ namespace ComicsUpdateTracker.Mhgui
                 };
                 var ids = chapter.Id.Split("-");
                 chapter.Url = $"https://comic.aya.click/online/best_{ids[0]}.html?ch={ids[1]}";
+                if (chapters.Any(x => x.Id == chapter.Id))
+                {
+                    continue;
+                }
                 chapters.Add(chapter);
             }
 

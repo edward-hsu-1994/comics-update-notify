@@ -44,7 +44,7 @@ namespace ComicsUpdateTracker.Mhgui
             var comic = new Comic();
 
             comic.Name = COMIC_NAME.Match(html).Groups["name"].Value;
-            comic.Tags = new string[]{doc.DocumentNode.CssSelect("a").First(x => x.InnerText.Trim().EndsWith("系列")).InnerText};
+            comic.Tags = new string[]{doc.DocumentNode.CssSelect("a").FirstOrDefault(x => x.InnerText.Trim().EndsWith("系列")).InnerText};
             comic.Year = null;
             comic.Status = doc.DocumentNode.CssSelect("a[href='#Comic']").First().LastChild.InnerText.Trim();
 
